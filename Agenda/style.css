@@ -1,0 +1,339 @@
+/* ----------------------------------
+   DEFINIȚII FONT ȘI VARIABILE CSS (LIGHT MODE)
+   ---------------------------------- */
+:root {
+  /* Culori Omogenizate */
+  --clr-pink-dark: #FF0099;      /* Roz Turbat Principal */
+  --clr-pink-light: #FFC0E6;     /* Roz Deschis (Fundaluri & Hover) */
+  --clr-main-bg: #f0f0f0;        /* Fundalul paginii */
+  --clr-primary-bg: #ffffff;     /* Fundalul Containerelor */
+}
+
+* {
+  font-family: 'Press Start 2P', system-ui, sans-serif;
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  background-color: var(--clr-main-bg);
+  color: #111;
+}
+
+/* ----------------------------------
+   HEADER
+   ---------------------------------- */
+#main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--clr-pink-dark);
+  color: white;
+  border-bottom: 1px solid #eee;
+  padding: 15px 40px;
+  margin-bottom: 20px;
+}
+
+#main-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.mode-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mode-label {
+  font-weight: bold;
+  color: #fffbfb;
+}
+
+/* ----------------------------------
+   CONTENT WRAPPER
+   ---------------------------------- */
+#main-content-wrapper {
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  overflow: hidden;
+  gap: 30px;
+  width: 80%;
+  min-height: 40vh;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--clr-primary-bg);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Titlul "My Phone Agenda" */
+#table-title {
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.5em;
+  padding-bottom: 5px;
+}
+
+#table-area {
+  flex-basis: 70%;
+  flex-grow: 1;
+}
+
+/* ----------------------------------
+   TABEL
+   ---------------------------------- */
+#table-title {
+  text-align: left;
+  font-size: 1.2em;
+  background-color: var(--clr-pink-light);
+  color: #410530;
+  padding: 10px;
+}
+.headcols{
+    text-align: left;
+    font-size: 1em;
+     border: 1px solid white;
+     padding: 5px;;
+}
+#data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+
+#data-table td {
+  border: 1px solid #ddd;
+  padding: 8px 15px;
+  font-size: 10px;
+  text-align: left;
+  color: var(--clr-pink-dark);
+  background-color: var(--clr-primary-bg);
+}
+
+#data-table thead th {
+  background: var(--clr-pink-light);
+  color: #410530;
+}
+
+#data-table tfoot td {
+  background-color: var(--clr-pink-light);
+  font-weight: bold;
+}
+
+#data-table tbody tr:hover {
+  background-color: var(--clr-pink-light);
+  cursor: pointer;
+}
+
+
+.delete-btn {
+  padding: 5px 10px;
+  background-color: #ffcccc;
+  border: 1px solid var(--clr-pink-dark);
+  cursor: pointer;
+  border-radius: 24px;
+  color: var(--clr-pink-dark);
+}
+.delete-btn:hover {
+  background-color: #410530;
+  color: white;
+}
+
+/* ----------------------------------
+   FORMULAR
+   ---------------------------------- */
+#form-area {
+  flex-grow: 0;
+  flex-basis: 30%;
+  padding: 20px;
+  background-color: var(--clr-primary-bg);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#add-person-form {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+#add-person-form input {
+  display: block;
+  width: 95%;
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: var(--clr-pink-dark);
+}
+
+#add-person-form button {
+  padding: 10px 20px;
+  width: 100%;
+  background-color: var(--clr-pink-light);
+  border: 1px solid #ccc;
+  color: var(--clr-pink-dark);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+input::placeholder {
+  color: var(--clr-pink-light);
+  opacity: 0.5;
+}
+
+/* ----------------------------------
+   SWITCH (TOGGLE)
+   ---------------------------------- */
+#toggle {
+  
+  display: none;
+}
+/* Creăm o bară care se mișcă peste rând */
+@keyframes rowLoading {
+  0% {
+    background-position: -100% 0;
+  }
+  50% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+/* Clasa aplicată pe rândul nou */
+.new-row {
+  position: relative;
+  overflow: hidden;
+  animation: rowLoading 2.5s ease-in-out;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--clr-loading-bg) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: var(--clr-pink-light);
+  border-radius: 34px;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  border: 1px solid #41053022;
+}
+.switch::before {
+  content: '';
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s;
+  box-shadow: 0 1px 3px rgba(0,0,0,.25);
+}
+
+/* Starea CHECKED în LIGHT MODE  */
+#toggle:checked + .switch {
+  background-color: #ff9bd5;
+}
+#toggle:checked + .switch::before {
+  transform: translateX(26px);
+}
+
+/* ----------------------------------
+   TEMA DARK MODE (Retro Terminal)
+   ---------------------------------- */
+body.dark-mode {
+  /* suprascriem variabilele culorilor */
+  --clr-main-bg: #111111;      /* Fundalul paginii (Negru) */
+  --clr-primary-bg: #222222;   /* Fundalul containerelor (Gri Închis) */
+  --clr-accent: #00FF00;       /* Verde Neon */
+
+  background-color: var(--clr-main-bg);
+  color: var(--clr-accent);
+}
+
+body.dark-mode #main-header {
+  background-color: var(--clr-main-bg);
+  color: var(--clr-accent);
+  border-color: var(--clr-accent);
+}
+body.dark-mode #main-header h1,
+body.dark-mode .mode-label {
+  color: var(--clr-accent);
+}
+
+body.dark-mode #main-content-wrapper,
+body.dark-mode #form-area {
+  background-color: var(--clr-primary-bg);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.4);
+}
+
+/* Tabel & inputuri în dark */
+body.dark-mode #data-table th,
+body.dark-mode #data-table td,
+body.dark-mode #add-person-form input {
+  color: var(--clr-accent);
+  border-color: #444444;
+  background-color: var(--clr-primary-bg);
+}
+
+body.dark-mode #data-table thead th {
+  background: #1c1c1c;
+  color: var(--clr-accent);
+}
+
+/* Footer, hover, butoane */
+body.dark-mode #data-table tfoot td {
+  background-color: #333333;
+  color: var(--clr-accent);
+}
+
+body.dark-mode #data-table tbody tr:hover {
+    
+    background-color: #303030; 
+    border: 1px solid var(--clr-accent);  
+}
+body.dark-mode .delete-btn {
+  background-color: #444444;
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+}
+body.dark-mode .delete-btn:hover {
+  background-color: var(--clr-accent);
+  color: #111111;
+}
+body.dark-mode input::placeholder
+{
+    color: var(--clr-main-bg);
+}
+body.dark-mode #add-person-form button {
+  background-color: var(--clr-accent);
+  color: var(--clr-main-bg);
+  border-color: var(--clr-accent);
+}
+
+/* Switch în dark */
+body.dark-mode #toggle + .switch {
+  background-color: #145c14;
+  border-color: #00ff0033;
+}
+body.dark-mode #toggle:checked + .switch {
+  background-color: var(--clr-accent);
+}
+body.dark-mode #toggle:checked + .switch::before {
+  transform: translateX(26px);
+  background-color: #111111;
+}

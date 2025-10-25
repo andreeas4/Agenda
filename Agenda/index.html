@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" rel="stylesheet">
+    <script src="./script.js"></script>
+    <link href="./style.css" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="./Resources/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./Resources/favicon.svg" />
+    <link rel="shortcut icon" href="./Resources/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./Resources/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+    <link rel="manifest" href="/Resources/site.webmanifest" />
+    <title>Agenda</title>
+</head>
+<body>
+    <header id="main-header">
+        <h1>Telephone Agenda</h1>
+        
+        <div class="mode-control">
+            <label class="mode-label">Mode</label>
+            <input type="checkbox" id="toggle" />
+            <label for="toggle" class="switch"></label>
+        </div>
+    </header>
+    <div id="main-content-wrapper">
+            <div id="table-area" class="data-table">
+                <table id="data-table" class="data-table">
+                    <thead> 
+                        <tr>
+                        <th colspan="4" id="table-title">My Phone Agenda</th>
+                        </tr>
+                        <tr>
+                            <th class="headcols">Last Name</th>
+                            <th class="headcols">First Name</th>
+                            <th class="headcols">Phone Number</th>
+                            <th class="headcols">Delete</th>
+                        </tr>
+                                        
+                    </thead>
+                    <tbody id="agenda-body">
+                       
+                        <tr>
+                            <td>Popescu</td>
+                            <td>Ana</td>
+                            <td>0744 123 456</td>
+                            <td><button class="delete-btn">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>Ionescu</td>
+                            <td>Radu</td>
+                            <td>0722 987 654</td>
+                            <td><button class="delete-btn">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>Georgescu</td>
+                            <td>Maria</td>
+                            <td>0766 555 111</td>
+                            <td><button class="delete-btn">Delete</button></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" id="total-persons">Total persoane: 3</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+           
+        <div id="form-area" class="form-container">
+            <form id="add-person-form">
+                <input type="text" id="lastNameInput" placeholder="Nume">
+                <input type="text" id="firstNameInput" placeholder="Prenume">
+                <input type="text" id="phoneInput" placeholder="Număr Telefon">
+                <button type="submit" id="addPersonBtn">Add Person</button>
+            </form>
+        
+
+        </div>
+    </div>
+</body>
+</html>
