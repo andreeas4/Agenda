@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     totalCell.textContent = `Total persoane: ${actualCount}`;
 }
     
-    // Funcția care gestionează click-ul pe butonul Delete
+    
     function handleDeleteClick(event) {
         if (event.target.classList.contains('delete-btn')) {
             event.preventDefault(); 
@@ -45,8 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (tableBody) {
         tableBody.addEventListener('click', handleDeleteClick);
-        updateTotalCount(); // Rulează la încărcarea paginii
-    }
+        updateTotalCount();
     // ----------------------------------------------------
 // LOGICA FORMULARULUI (Adăugare Rând)
 // ----------------------------------------------------
@@ -66,36 +65,34 @@ if (addPersonForm) {
 
         if (lastName && firstName && phoneNumber) {
             
-            // 1. DECLANȘAREA ANIMAȚIEI: Adaugă clasa de loading pe body
-            // Asigură-te că 'bodyElement' este definit în blocul DOMContentLoaded superior
+            
             bodyElement.classList.add('is-loading'); 
             
-            // 2. TIMEOUT: Execută adăugarea persoanei după 500ms (durata animației CSS)
+           
             setTimeout(() => {
                 
                 // --- Operațiuni care se întâmplă DUPĂ animație ---
                 createNewRow(lastName, firstName, phoneNumber);
                 
-                // Resetează formularul
+              
                 addPersonForm.reset(); 
                 
-                // Actualizează totalul
+               
                 updateTotalCount(); 
                 
-                // 3. ELIMINAREA CLASEI: Scoate clasa pentru a reveni la normal
+               
                 bodyElement.classList.remove('is-loading');
                 
-            }, 500); // 500 milisecunde = 0.5s (trebuie să se potrivească cu durata din CSS)
-
+            }, 500); 
         } else {
             alert("Te rog completează toate câmpurile!");
         }
     });
 }
 
-// Funcția care creează și inserează noul rând (rămâne neschimbată)
+
 function createNewRow(lastName, firstName, phoneNumber) {
-    const tableBody = document.getElementById('agenda-body'); // Asigură-te că folosești ID-ul tbody corect
+    const tableBody = document.getElementById('agenda-body'); 
 
     const newRow = document.createElement('tr'); 
     
@@ -108,4 +105,5 @@ function createNewRow(lastName, firstName, phoneNumber) {
 
     tableBody.appendChild(newRow);
 }
+
 });
